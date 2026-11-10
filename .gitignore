@@ -1,0 +1,42 @@
+### Go template
+# Allowlisting gitignore template for GO projects prevents us
+# from adding various unwanted local files, such as generated
+# files, developer configurations or IDE-specific files etc.
+#
+# Recommended: Go.AllowList.gitignore
+
+# Ignore everything
+*
+
+# But not these files...
+!/.gitignore
+!/.gitmodules
+
+!*.go
+!go.sum
+!go.mod
+
+!README.md
+!LICENSE
+!/justfile
+
+# !Makefile
+
+# ...even if they are in subdirectories
+!*/
+!third_party/**
+
+!scripts/**
+
+/_context/
+
+# autocorrect: the personal pattern table and its tests stay local.
+# Without them the package still builds; see autocorrect/autocorrect.go.
+/autocorrect/patterns.go
+/autocorrect/patterns_test.go
+
+# Local scratch space. These stay last so the !*.go and !README.md rules above
+# can't re-include files inside them.
+/exploration/
+/experiments/
+/temp/
